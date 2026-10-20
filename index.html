@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dissimilarity Rating Experiment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+
+  <!-- Intro -->
+  <section id="screen-intro" class="screen">
+    <div class="text-block">
+      <p>In this experiment, you will be asked to rate the dissimilarity of pairs of sounds.</p>
+      <p>There are <span id="n-sounds">…</span> total sounds which you will listen to before beginning the experiment.
+         Then you will rate the dissimilarity of the audio pairs (<span id="n-pairs">…</span> in total) from 1-9,
+         dissimilarity meaning whatever it most intuitively means to you.</p>
+      <p>Try to use the full range of the scale.</p>
+      <p>Please use headphones in a quiet place. Your ratings are saved automatically as you go.</p>
+    </div>
+    <button id="btn-start" class="btn" disabled>Start</button>
+    <p id="intro-status" class="dim">Loading sounds…</p>
+    <p id="test-banner" class="warn" hidden></p>
+  </section>
+
+  <!-- Preview -->
+  <section id="screen-preview" class="screen" hidden>
+    <h1>Get a feel for the sounds before we begin</h1>
+    <p id="preview-progress" class="dim"></p>
+    <button id="btn-preview-retry" class="btn" hidden>Click to play</button>
+  </section>
+
+  <!-- Trial -->
+  <section id="screen-trial" class="screen" hidden>
+    <div id="trial-left">
+      <div class="text-block small">
+        <p>Click the play buttons to listen to the stimuli.</p>
+        <p>You can listen to each stimulus as many times as you feel necessary.</p>
+        <p>Move the slider on the right based on the stimuli's dissimilarity.</p>
+        <p>Try to use the full range of the scale throughout the experiment.</p>
+        <p>When done, a next button appears. Once pressed, you cannot go back. Click next when ready.</p>
+      </div>
+      <div id="play-row">
+        <button id="btn-A" class="play" aria-label="Play sound A"></button>
+        <button id="btn-B" class="play" aria-label="Play sound B"></button>
+      </div>
+    </div>
+
+    <div id="trial-right">
+      <button id="btn-next" class="btn" hidden>next</button>
+      <div class="small">most dissimilar (least similar)</div>
+      <div id="scale-wrap">
+        <div id="scale-hit">
+          <div id="scale-bar"></div>
+          <div id="scale-ticks"></div>
+          <div id="scale-indicator"><span id="scale-value">5.0</span></div>
+        </div>
+      </div>
+      <div class="small">least dissimilar (most similar)</div>
+    </div>
+
+    <div id="pair-number"></div>
+  </section>
+
+  <!-- Break -->
+  <section id="screen-break" class="screen" hidden>
+    <h1>Take a break!</h1>
+    <p id="break-count" class="small"></p>
+    <h1 id="break-timer">5:00</h1>
+    <p class="small">Continue whenever you're ready - the countdown is just a suggestion.</p>
+    <button id="btn-continue" class="btn">Continue</button>
+  </section>
+
+  <!-- Done -->
+  <section id="screen-done" class="screen" hidden>
+    <h1>Done</h1>
+    <p>Thanks! The experiment is complete.</p>
+    <p id="save-status" class="dim">Saving your responses…</p>
+    <button id="btn-backup" class="btn small-btn" hidden>Download backup copy</button>
+    <p id="backup-note" class="dim small" hidden>
+      If saving keeps failing, download the backup file and email it to wesleyc@caltech.edu.
+    </p>
+  </section>
+
+</main>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
