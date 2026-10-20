@@ -151,7 +151,7 @@
         : "Warning: APPS_SCRIPT_URL is not set in config.js — results will not be saved.";
       $("btn-start").disabled = false;
     } catch (e) {
-      $("intro-status").textContent = "Could not load sounds.json. Run make_manifest.py and redeploy.";
+      $("intro-status").textContent = "Could not load sounds.json. Run format_sounds.py and redeploy.";
     }
   }
 
@@ -194,8 +194,8 @@
   player.addEventListener("ended", onEnded);
 
   // ---------------- trials ----------------
-  const PLAY_SVG = (label) => `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/><polygon points="40,28 40,72 74,50" fill="currentColor"/><text class="label" x="50" y="94" text-anchor="middle">${label}</text></svg>`;
-  const PAUSE_SVG = (label) => `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/><rect x="34" y="28" width="11" height="44" fill="currentColor"/><rect x="55" y="28" width="11" height="44" fill="currentColor"/><text class="label" x="50" y="94" text-anchor="middle">${label}</text></svg>`;
+  const PLAY_SVG = () => `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/><polygon points="40,28 40,72 74,50" fill="currentColor"/></svg>`;
+  const PAUSE_SVG = () => `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/><rect x="34" y="28" width="11" height="44" fill="currentColor"/><rect x="55" y="28" width="11" height="44" fill="currentColor"/></svg>`;
 
   function renderPlayButtons() {
     $("btn-A").innerHTML = S.playingSide === "A" ? PAUSE_SVG("A") : PLAY_SVG("A");
