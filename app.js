@@ -51,7 +51,7 @@
     } else if (queue.length === 0) {
       $("save-status").textContent = "All responses saved. You can close this page.";
     } else {
-      $("save-status").textContent = `Saving your responses… (${queue.length} pending)`;
+      $("save-status").textContent = `Saving your responses… do not close the tab yet (${queue.length} pending)`;
     }
     const showBackup = !S.configured || failures >= 3;
     $("btn-backup").hidden = !showBackup;
